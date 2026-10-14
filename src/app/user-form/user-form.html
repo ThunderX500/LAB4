@@ -1,0 +1,40 @@
+<section class="form-card">
+  <h2>User Information</h2>
+  <p class="intro">Enter your information below. The first half of the lab currently validates the required name fields.</p>
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="field">
+      <label for="firstName">First Name <span aria-hidden="true">*</span></label>
+      <input id="firstName" type="text" formControlName="firstName" autocomplete="given-name">
+      @if (firstName.touched && firstName.hasError('required')) {
+        <p class="error">First name is required.</p>
+      }
+    </div>
+
+    <div class="field">
+      <label for="lastName">Last Name <span aria-hidden="true">*</span></label>
+      <input id="lastName" type="text" formControlName="lastName" autocomplete="family-name">
+      @if (lastName.touched && lastName.hasError('required')) {
+        <p class="error">Last name is required.</p>
+      }
+    </div>
+
+    <div class="field">
+      <label for="phone">Phone Number</label>
+      <input id="phone" type="tel" formControlName="phone" autocomplete="tel" placeholder="10 digits">
+      <p class="todo-note">Phone-format validation is part of the remaining work.</p>
+    </div>
+
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" autocomplete="email">
+      <p class="todo-note">Angular email validation is part of the remaining work.</p>
+    </div>
+
+    <button type="submit">Submit</button>
+
+    @if (submitted && userForm.valid) {
+      <p class="checkpoint">The current half is valid. The final version must navigate to a separate results page.</p>
+    }
+  </form>
+</section>

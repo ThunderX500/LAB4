@@ -1,0 +1,72 @@
+.form-card {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.form-card h2 {
+  margin-top: 0;
+}
+
+.intro {
+  color: #4b5563;
+}
+
+.field {
+  margin-bottom: 1.1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #9ca3af;
+  border-radius: 6px;
+}
+
+input:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 1px;
+}
+
+.error {
+  margin: 0.35rem 0 0;
+  color: #b91c1c;
+  font-size: 0.9rem;
+}
+
+.todo-note {
+  margin: 0.35rem 0 0;
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+button {
+  padding: 0.7rem 1.1rem;
+  border: 0;
+  border-radius: 6px;
+  background: #1d4ed8;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1e40af;
+}
+
+.checkpoint {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  background: #ecfdf5;
+  color: #065f46;
+}
