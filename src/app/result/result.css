@@ -1,0 +1,42 @@
+.result-card {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.result-card h2 {
+  margin-top: 0;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-table th,
+.user-table td {
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #d1d5db;
+  text-align: left;
+}
+
+.user-table th {
+  width: 40%;
+  background: #f3f4f6;
+  font-weight: 600;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 1.25rem;
+  color: #1d4ed8;
+}
+
+.not-provided {
+  color: #6b7280;
+  font-style: italic;
+}

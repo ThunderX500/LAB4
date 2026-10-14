@@ -1,0 +1,40 @@
+<section class="result-card">
+  <h2>Submitted User Information</h2>
+
+  @if (hasData) {
+    <table class="user-table">
+      <tbody>
+        <tr>
+          <th scope="row">First Name</th>
+          <td>{{ user.firstName }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Last Name</th>
+          <td>{{ user.lastName }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Phone Number</th>
+          <td>
+            @if (user.phone) {
+              {{ user.phone }}
+            } @else {
+              <span class="not-provided">Not provided</span>
+            }
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">Email</th>
+          <td>
+            @if (user.email) {
+              {{ user.email }}
+            } @else {
+              <span class="not-provided">Not provided</span>
+            }
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  }
+
+  <a class="back-link" [routerLink]="['/']">Back to the form</a>
+</section>

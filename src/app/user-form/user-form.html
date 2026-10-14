@@ -1,6 +1,9 @@
 <section class="form-card">
   <h2>User Information</h2>
-  <p class="intro">Enter your information below. The first half of the lab currently validates the required name fields.</p>
+  <p class="intro">
+    Enter your information below. First and last name are required. The phone number is optional,
+    but when supplied it must be 10 digits with the 1st and 4th digits different from 0.
+  </p>
 
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
     <div class="field">
@@ -22,19 +25,22 @@
     <div class="field">
       <label for="phone">Phone Number</label>
       <input id="phone" type="tel" formControlName="phone" autocomplete="tel" placeholder="10 digits">
-      <p class="todo-note">Phone-format validation is part of the remaining work.</p>
+      @if (phone.touched && phone.hasError('phoneDigits')) {
+        <p class="error">Phone number must be exactly 10 digits.</p>
+      }
+      @if (phone.touched && phone.hasError('phoneZeroDigit')) {
+        <p class="error">The 1st and 4th digits cannot be 0.</p>
+      }
     </div>
 
     <div class="field">
       <label for="email">Email</label>
       <input id="email" type="email" formControlName="email" autocomplete="email">
-      <p class="todo-note">Angular email validation is part of the remaining work.</p>
+      @if (email.touched && email.hasError('email')) {
+        <p class="error">Enter a valid email address.</p>
+      }
     </div>
 
     <button type="submit">Submit</button>
-
-    @if (submitted && userForm.valid) {
-      <p class="checkpoint">The current half is valid. The final version must navigate to a separate results page.</p>
-    }
   </form>
 </section>

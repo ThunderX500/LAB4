@@ -2,8 +2,7 @@
 
 ## Angular Reactive Form
 
-
-The assessed exercise is an Angular application that collects a user's first name, last name, phone number, and email using a reactive form. A completed version must validate the required fields/formats and show valid submitted data on a new page in a table.
+The assessed exercise is an Angular application that collects a user's first name, last name, phone number, and email using a reactive form. It validates the required fields/formats and shows valid submitted data on a new page in a table.
 
 ## Completed — first half
 
@@ -19,17 +18,17 @@ The assessed exercise is an Angular application that collects a user's first nam
 - [x] Added a submit handler that marks the form controls as touched and only accepts the current form when valid.
 - [x] Added basic styling so the form is readable and easy to test.
 
-## Remaining — second half
+## Completed — second half
 
-- [ ] Add the phone validator. The phone number is optional, but when supplied it must contain exactly 10 digits, with the **1st and 4th digits different from 0**.
-- [ ] Add `Validators.email` to the email control.
-- [ ] Add appropriate error messages for invalid phone and email values.
-- [ ] Create a separate result/display component.
-- [ ] Add a route for the result page.
-- [ ] Pass the valid submitted user data to the result page.
-- [ ] Display First Name, Last Name, Phone Number, and Email in a table on the result page.
-- [ ] Replace the current halfway-checkpoint message / console logging with the required navigation behavior.
-- [ ] Run final validation tests and verify the production build.
+- [x] Added the phone validator. The phone number is optional, but when supplied it must contain exactly 10 digits, with the **1st and 4th digits different from 0**.
+- [x] Added `Validators.email` to the email control.
+- [x] Added appropriate error messages for invalid phone and email values.
+- [x] Created a separate result/display component.
+- [x] Added a route for the result page.
+- [x] Pass the valid submitted user data to the result page.
+- [x] Display First Name, Last Name, Phone Number, and Email in a table on the result page.
+- [x] Replaced the halfway-checkpoint message / console logging with the required navigation behavior.
+- [x] Ran final validation tests and verified the production build.
 
 ## How to run
 
@@ -40,6 +39,29 @@ npm start
 
 Then open `http://localhost:4200/`.
 
-## Current checkpoint
+## How to test
 
-The project is deliberately stopped after the form structure and the two required-name validations. This keeps the repository at roughly half of the exercise while leaving the phone/email validation and the separate results page as the main remaining work.
+```bash
+npm test
+```
+
+Unit tests cover the custom phone validator, the form's validation and navigation behaviour, and the result page's table rendering and redirect.
+
+```bash
+npm run build
+```
+
+Produces the optimized production bundle in `dist/lab4`.
+
+## Design notes
+
+- The custom phone validator lives in `src/app/validators/phone.validator.ts`. It returns two
+  distinct error keys — `phoneDigits` when the value is not exactly 10 digits and `phoneZeroDigit`
+  when the 1st or 4th digit is `0` — so the form can show a specific message for each case. An
+  empty value is valid, which keeps the field optional.
+- Valid submissions are passed to the result page as **query parameters**
+  (`/result?firstName=…&lastName=…&phone=…&email=…`). `Result` reads them from
+  `ActivatedRoute.snapshot.queryParamMap`, so the page can be reloaded or shared. Opening `/result`
+  without submitted data redirects back to the form.
+- Tests run on the `@angular/build:unit-test` builder with the vitest runner, which matches the
+  project's `@angular/build`-only toolchain. Karma is deprecated as of Angular 20.
