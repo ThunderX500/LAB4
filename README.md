@@ -2,7 +2,6 @@
 
 ## Angular Reactive Form
 
-This repository is intentionally at approximately **50% completion** so the remaining half can be completed separately.
 
 The assessed exercise is an Angular application that collects a user's first name, last name, phone number, and email using a reactive form. A completed version must validate the required fields/formats and show valid submitted data on a new page in a table.
 
